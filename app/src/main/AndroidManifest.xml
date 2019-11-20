@@ -25,6 +25,7 @@
         <activity android:name=".moudle.font.ModifyScaleResultActivity" />
         <activity android:name=".moudle.typeface.TypeFaceActivity" />
         <activity android:name=".moudle.typeface.TypeFaceResultActivity" />
+        <activity android:name=".moudle.calligraphy.CalligraphyActivity" />
     </application>
 
 </manifest>

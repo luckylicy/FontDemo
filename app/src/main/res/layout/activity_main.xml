@@ -26,4 +26,16 @@
         android:gravity="center"
         android:text="修改字体" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_dark_bg_has_alpha" />
+
+    <TextView
+        android:id="@+id/tv_typeface_calligraphy"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="calligraphy" />
+
 </LinearLayout>

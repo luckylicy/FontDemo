@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.licy.fontscale.moudle.calligraphy.CalligraphyActivity;
 import com.licy.fontscale.moudle.font.FontScaleActivity;
-import com.licy.fontscale.moudle.typeface.ModifyTypeFaceActivity;
 import com.licy.fontscale.moudle.typeface.TypeFaceActivity;
 
 import butterknife.BindView;
@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvFontScale;
     @BindView(R.id.tv_font_typeface)
     TextView tvFontTypeface;
+    @BindView(R.id.tv_typeface_calligraphy)
+    TextView tvTypefaceCalligraphy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.tv_font_scale, R.id.tv_font_typeface})
+    @OnClick({R.id.tv_font_scale, R.id.tv_font_typeface, R.id.tv_typeface_calligraphy})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_font_scale:
@@ -37,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.tv_font_typeface:
                 startActivity(new Intent(MainActivity.this, TypeFaceActivity.class));
+                break;
+            case R.id.tv_typeface_calligraphy:
+                startActivity(new Intent(MainActivity.this, CalligraphyActivity.class));
                 break;
             default:
                 break;

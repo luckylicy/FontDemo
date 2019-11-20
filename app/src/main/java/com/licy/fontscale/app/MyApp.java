@@ -2,15 +2,20 @@ package com.licy.fontscale.app;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 
+import com.didichuxing.doraemonkit.DoraemonKit;
+import com.licy.fontscale.BuildConfig;
+import com.licy.fontscale.R;
 import com.licy.fontscale.moudle.font.FontScaleActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
  * MyApp
@@ -31,15 +36,23 @@ public class MyApp extends Application implements Application.ActivityLifecycleC
     public void onCreate() {
         super.onCreate();
         init();
+        if (BuildConfig.DEBUG) {
+            DoraemonKit.install(mainApplication);
+        }
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/huakangwawa.TTF")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
     }
 
-    public static MyApp getInstance(){
+    public static MyApp getInstance() {
         return mainApplication;
     }
 
     private void init() {
         mainApplication = this;
-        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences = getSharedPreferences("MyApp", Context.MODE_PRIVATE);
         fontScale = getFontScale();
         registerActivityLifecycleCallbacks(this);
     }
